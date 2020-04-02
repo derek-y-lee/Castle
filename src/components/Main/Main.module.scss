@@ -8,6 +8,12 @@
     text-align: center;
 }
 
+.layout p {
+    font-weight: bold;
+    color: $loginBackground;
+    font-size: 1.2em;
+}
+
 .userUI {
     background-color: $loginBackground;
     width: 100%;
@@ -15,11 +21,30 @@
 }
 
 .terminal {
-    margin-top: 20em;
+    margin-top: 18em;
+    margin-right: 7em;
 }
 
 .terminal a {
     font-size: 2em;
     color: #9a9a9a;
-    margin: 0 .4em;
+    margin: 0 1em;
+}
+
+div > .activeLink {
+    color: #fff;
+    padding-bottom: .2em;
+    border-bottom: 3px solid #fff;
+}
+
+// CTAs
+.enterBtn {
+    background-color: $loginBackground;
+    color: #fff;
+    font-size: 1.8em;
+    padding: .3em 1em;
+    border: 1.5px solid #fff;
+    display: block;
+    margin: 0 auto;
+    margin-top: 7em;
 }
