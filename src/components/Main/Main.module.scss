@@ -15,9 +15,13 @@
 }
 
 .userUI {
+    position: relative;
     background-color: $loginBackground;
     width: 100%;
-    height: 100vh;
+    // height: 110vh;
+    height: auto;
+
+    // height: auto;
 }
 
 .terminal {
@@ -37,7 +41,7 @@ div > .activeLink {
     border-bottom: 3px solid #fff;
 }
 
-// CTAs
+// CTAs & Inputs
 .enterBtn {
     background-color: $loginBackground;
     color: #fff;
@@ -46,5 +50,33 @@ div > .activeLink {
     border: 1.5px solid #fff;
     display: block;
     margin: 0 auto;
-    margin-top: 7em;
+    margin-bottom: 2em;
+    cursor: pointer;
+}
+
+.login > input {
+    display: block;
+    background-color: transparent;
+    margin: 0 auto;
+    margin-left: 5em;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    color: #fff;
+    border-bottom: 2px solid #fff;
+}
+
+.login > input:first-child {
+    margin-bottom: 1.8em;
+}
+
+.login input::placeholder {
+    color: #9a9a9a;
+}
+.slogan {
+   position: absolute;
+   top: 40em;
+   left: 60%;
+   z-index: 9999
+
 }
