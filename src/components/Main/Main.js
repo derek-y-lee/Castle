@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classes from './Main.module.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 
 const { layout, userUI, terminal, activeLink, enterBtn, login, slogan } = classes;
 
 const Main = (props) => {
+
     return (
         <div className={layout}>
             <section className={userUI}>
@@ -19,8 +20,10 @@ const Main = (props) => {
                         <input type="password" name="password" placeholder="password" />
                     </form>
                 </div>
-                <div style={{marginTop: "5em", marginBottom: "8em"}}>
-                    <button className={enterBtn}>enter</button>
+                <div style={{ marginTop: "5em", marginBottom: "8em" }}>
+                    <Link to="/dashboard">
+                        <button className={enterBtn}>enter</button>
+                    </Link>
 
                 </div>
             </section>
