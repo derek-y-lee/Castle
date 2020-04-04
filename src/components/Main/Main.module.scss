@@ -38,6 +38,7 @@
 div > .activeLink {
     color: #fff;
     padding-bottom: .2em;
+    padding-right: 1em;
     border-bottom: 3px solid #fff;
 }
 
@@ -74,6 +75,11 @@ div > .activeLink {
 .login input::placeholder {
     color: #9a9a9a;
 }
+
+.login input:focus {
+    border: lightblue 2px solid;
+}
+
 .slogan {
    position: absolute;
    top: 40em;
