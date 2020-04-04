@@ -1,0 +1,46 @@
+@import '../../variables.scss';
+
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    // grid-template-rows: 1fr 1fr;
+    text-align: center;
+    grid-gap: 0;
+}
+
+
+.userUI {
+    position: relative;
+    background-color: $loginBackground;
+    // width: 35%;
+    height: auto;
+    // height: auto;
+
+}
+
+.assortmentUI {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.assortmentUI a {
+    display: block;
+    width: 100%;
+    padding: 2em 0;
+    border: 1px solid yellow;
+    margin-top: 2em;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+}
+
+.assortmentUI a:last-child {
+    margin-bottom: 55vh;
+}
+
+.dashboardView {
+    border: 2px solid red;
+}
