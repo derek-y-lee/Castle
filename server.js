@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const pool = require('./config.js').pool;
+const id_counter = 1;
 
 
 
@@ -32,7 +33,7 @@ const getGroups = (request, response) => {
 const addRoom = (request, response) => {
   const { room_id, name } = request.body
 
-  pool.query("INSERT INTO rooms (room_id, name) VALUES (" + connection.escape(uniqueID) +  "," + connection.escape(chosenName) + ")", [room_id, name], error => {
+  pool.query("INSERT INTO rooms (room_id, name) VALUES (" + connection.escape(id_counter + 1) +  "," + connection.escape(chosenName) + ")", [room_id, name], error => {
     if (error) {
       throw error
     }
@@ -48,7 +49,7 @@ const newUser = (request, response) => {
       if (err) {
         return console.error('Error acquiring client', err.stack)
       }
-      client.query("INSERT INTO account (user_id, email, password) VALUES (" + connection.escape(uniqueUserID) +  "," + connection.escape(email) + "," + connection.escape(password) + ")", [user_id, email, password], error => {
+      client.query("INSERT INTO account (user_id, email, password) VALUES (" + connection.escape(id_counter + 1) +  "," + connection.escape(email) + "," + connection.escape(password) + ")", [user_id, email, password], error => {
         if (error) {
           throw error
           console.log("SCREAM!")
