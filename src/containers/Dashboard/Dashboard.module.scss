@@ -41,3 +41,29 @@
     margin-bottom: 55vh;
 }
 
+.information {
+    display: grid;
+    grid-template-areas:
+    'bannerA leaderboard'
+    'bannerB leaderboard';
+    grid-gap: 1.5em;
+    margin-top: 6em;
+}
+
+.bannerA {
+    border: 1px solid #000;
+    grid-area: bannerA;
+}
+
+.bannerB {
+    border: 1px solid #000;
+    margin-top:5em;
+    grid-area: bannerB;
+}
+
+.leaderBoard {
+    border: 1px solid #000;
+    grid-area: leaderboard;
+    color: blue;
+    width: 80%;
+}
