@@ -4,6 +4,11 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+const pool = require('./config.js').pool;
+const id_counter = 1;
+
+
+
 
 
 app.use(bodyParser.json())
@@ -28,7 +33,7 @@ const getGroups = (request, response) => {
 const addRoom = (request, response) => {
   const { room_id, name } = request.body
 
-  pool.query("INSERT INTO rooms (room_id, name) VALUES (" + connection.escape(uniqueID) +  "," + connection.escape(chosenName) + ")", [room_id, name], error => {
+  pool.query("INSERT INTO rooms (room_id, name) VALUES (" + connection.escape(id_counter + 1) +  "," + connection.escape(chosenName) + ")", [room_id, name], error => {
     if (error) {
       throw error
     }
@@ -36,9 +41,31 @@ const addRoom = (request, response) => {
   })
 }
 
+const newUser = (request, response) => {
+  console.log("didnt declare params yet")
+  const { email, password } = request.body
+  console.log(email,password)
+  pool.connect((err, client, release) => {
+      if (err) {
+        return console.error('Error acquiring client', err.stack)
+      }
+      client.query("INSERT INTO account(email, password) VALUES ('test@gmail.com','xyze')", [email, password], error => {
+        if (error) {
+          throw error
+          console.log("SCREAM!")
+        }
+        response.send("Added: " + email)
+        // response.status(201).json({ status: 'success', message: 'New user added.' })
+      })
 
-app.post(addRoom)
+    })
 
+}
+
+
+
+app.post('/api/dashboard', addRoom)
+app.post('/api', newUser)
 
 app.get('/chat', function(req, res) {
     res.render('index.ejs');
@@ -63,3 +90,8 @@ io.sockets.on('connection', function(socket) {
 const server = http.listen(8080, function() {
     console.log('listening on *:8080');
 });
+
+module.exports = {
+  addRoom,
+  newUser,
+}
