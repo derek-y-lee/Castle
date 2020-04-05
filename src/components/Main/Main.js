@@ -1,5 +1,4 @@
-// import React, { useState } from 'react';
-import React from 'react';
+import React, { useState } from 'react';
 import classes from './Main.module.scss';
 // import { NavLink, Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
