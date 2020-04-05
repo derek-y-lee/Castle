@@ -44,3 +44,27 @@
 .dashboardView {
     border: 2px solid red;
 }
+
+.informationGrid {
+    display: grid;
+    grid-template-areas: 
+    'bannerA leaderboard'
+    'bannerB leaderboard';
+    margin-top: 6em;
+    border: 2px solid #000;
+}
+
+.bannerA {
+    grid-area: bannerA;
+}
+
+.bannerB {
+    margin-top: 2em;
+    grid-area: bannerB;
+
+}
+
+.leadership {
+    grid-area: leaderboard;
+
+}
