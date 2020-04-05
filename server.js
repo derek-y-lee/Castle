@@ -53,11 +53,12 @@ const newUser = (request, response) => {
           throw error
           console.log("SCREAM!")
         }
-        response.status(201).json({ status: 'success', message: 'New user added.' })
+        response.send("Added: " + email)
+        // response.status(201).json({ status: 'success', message: 'New user added.' })
       })
-  
+
     })
-  
+
 }
 
 
