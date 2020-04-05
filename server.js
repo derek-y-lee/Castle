@@ -4,22 +4,10 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-const pool = require('./config.js');
+const pool = require('./config.js').pool;
 
-const { Pool } = require('pg')
-const pool = new Pool()
-pool.connect((err, client, release) => {
-  if (err) {
-    return console.error('Error acquiring client', err.stack)
-  }
-  client.query('SELECT NOW()', (err, result) => {
-    release()
-    if (err) {
-      return console.error('Error executing query', err.stack)
-    }
-    console.log(result.rows)
-  })
-})
+
+
 
 
 app.use(bodyParser.json())
@@ -55,16 +43,21 @@ const addRoom = (request, response) => {
 const newUser = (request, response) => {
   console.log("didnt declare params yet")
   const { email, password } = request.body
-
-  console.log("Got the params")
-
-  pool.query("INSERT INTO account (user_id, email, password) VALUES (" + connection.escape(uniqueUserID) +  "," + connection.escape(email) + "," + connection.escape(password) + ")", [user_id, email, password], error => {
-    if (error) {
-      throw error
-      console.log("SCREAM!")
-    }
-    response.status(201).json({ status: 'success', message: 'New user added.' })
-  })
+  console.log(email,password)
+  pool.connect((err, client, release) => {
+      if (err) {
+        return console.error('Error acquiring client', err.stack)
+      }
+      client.query("INSERT INTO account (user_id, email, password) VALUES (" + connection.escape(uniqueUserID) +  "," + connection.escape(email) + "," + connection.escape(password) + ")", [user_id, email, password], error => {
+        if (error) {
+          throw error
+          console.log("SCREAM!")
+        }
+        response.status(201).json({ status: 'success', message: 'New user added.' })
+      })
+  
+    })
+  
 }
 
 
