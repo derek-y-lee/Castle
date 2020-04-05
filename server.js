@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+const pg = require('pg')
 
 
 app.use(bodyParser.json())
@@ -36,9 +37,21 @@ const addRoom = (request, response) => {
   })
 }
 
+const newUser = (request, response) => {
+  const { email, password } = request.body
+
+  pool.query("INSERT INTO account (user_id, email, password) VALUES (" + connection.escape(uniqueUserID) +  "," + connection.escape(email) + "," + connection.escape(password) + ")", [user_id, email, password], error => {
+    if (error) {
+      throw error
+    }
+    response.status(201).json({ status: 'success', message: 'New user added.' })
+  })
+}
+
+
 
 app.post(addRoom)
-
+app.post(newUser)
 
 app.get('/chat', function(req, res) {
     res.render('index.ejs');
@@ -63,3 +76,8 @@ io.sockets.on('connection', function(socket) {
 const server = http.listen(8080, function() {
     console.log('listening on *:8080');
 });
+
+module.exports = {
+  addRoom,
+  newUser,
+}
