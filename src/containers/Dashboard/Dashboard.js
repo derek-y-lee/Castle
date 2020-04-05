@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classes from './Dashboard.module.scss';
 
+import SocialGroups from './SocialGroups/SocialGroups';
+
 const { layout, userUI, assortmentUI, dashboardView } = classes;
 
 const dashboard = (props) => {
@@ -16,7 +18,7 @@ const dashboard = (props) => {
                 </div>
             </section>
             <section className={dashboardView}>
-                <p>Dashboard Content goes below</p>
+                <SocialGroups />
             </section>
         </div>
     );
