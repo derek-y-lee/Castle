@@ -1,9 +1,22 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser')
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
-app.get('/', function(req, res) {
+
+app.use(bodyParser.json())
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+)
+
+app.get('/')
+
+
+
+app.get('/chat', function(req, res) {
     res.render('index.ejs');
 });
 
