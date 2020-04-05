@@ -1,20 +1,38 @@
 // import React, { useState } from 'react';
 import React from 'react';
 import classes from './Main.module.scss';
-import { NavLink, Link } from 'react-router-dom';
+// import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
-const { layout, userUI, terminal, activeLink, enterBtn, login, slogan } = classes;
+const { layout, userUI, terminal, activeLink, restLink, enterBtn, login, slogan } = classes;
 
 const Main = (props) => {
+
+    const [isToggled, setToggled] = useState(true);
+    const toggle = () => setToggled(!isToggled);
+
 
     return (
         <div className={layout}>
             <section className={userUI}>
                 <div className={terminal}>
+                    <button href="/"
+                        className={isToggled ? activeLink : restLink}
+                        onClick={toggle}>
+                        log in
+                    </button>
+                    <button href="/"
+                        className={isToggled ? restLink : activeLink}
+                        onClick={toggle}
+                       >
+                        sign up
+                    </button>
+                </div>
+                {/* <div className={terminal}>
                     <NavLink exact to="/" activeClassName={activeLink}>log in</NavLink>
                     <NavLink to="/signUp" activeClassName={activeLink}>sign up</NavLink>
-                </div>
+                </div> */}
                 <div style={{ marginTop: "5em" }}>
                     <form className={login}>
                         <input type="email" name="email" placeholder="email" />
