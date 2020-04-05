@@ -49,7 +49,7 @@ const newUser = (request, response) => {
       if (err) {
         return console.error('Error acquiring client', err.stack)
       }
-      client.query("INSERT INTO account (user_id, email, password) VALUES (" + connection.escape(id_counter + 1) +  "," + connection.escape(email) + "," + connection.escape(password) + ")", [user_id, email, password], error => {
+      client.query("INSERT INTO account(email, password) VALUES ('test@gmail.com','xyze')", [email, password], error => {
         if (error) {
           throw error
           console.log("SCREAM!")
