@@ -26,19 +26,27 @@
 
 .terminal {
     margin-top: 18em;
-    margin-right: 7em;
+    // margin-right: 7em;
 }
 
-.terminal a {
+.terminal button {
     font-size: 2em;
-    color: #9a9a9a;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    // color: #9a9a9a;
     margin: 0 1em;
 }
 
-div > .activeLink {
+button.activeLink {
     color: #fff;
     padding-bottom: .2em;
     padding-right: 1em;
+    border-bottom: 3px solid #fff;
+}
+
+.restLink {
+    color: #9a9a9a;
     border-bottom: 3px solid #fff;
 }
 
