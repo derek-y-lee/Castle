@@ -51,8 +51,8 @@ const newUser = (request, response) => {
 
 
 
-app.post('http://localhost:3000/', addRoom)
-app.post('http://localhost:3000/', newUser)
+app.post('/api/dashboard', addRoom)
+app.post('/api', newUser)
 
 app.get('/chat', function(req, res) {
     res.render('index.ejs');
