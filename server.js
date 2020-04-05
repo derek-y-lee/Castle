@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const pg = require('pg')
+const pool = require('./config.js');
 
 
 app.use(bodyParser.json())
@@ -50,8 +51,8 @@ const newUser = (request, response) => {
 
 
 
-app.post(addRoom)
-app.post(newUser)
+app.post('http://localhost:3000/', addRoom)
+app.post('http://localhost:3000/', newUser)
 
 app.get('/chat', function(req, res) {
     res.render('index.ejs');
