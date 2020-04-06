@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const pool = require('./config.js').pool;
-const id_counter = 1;
+const uuidv4 = require('uuid/v4');
 
 
 
@@ -31,20 +31,26 @@ const getGroups = (request, response) => {
 }
 
 const addRoom = (request, response) => {
+  console.log("addRoom connected")
+  let randID = uuidv4()
   const { room_id, name } = request.body
-
-  pool.query("INSERT INTO rooms (room_id, name) VALUES (" + connection.escape(id_counter + 1) +  "," + connection.escape(chosenName) + ")", [room_id, name], error => {
-    if (error) {
-      throw error
+  console.log(randID)
+  pool.connect((err, client, release) => {
+    if (err) {
+      return console.error('Error acquiring client', err.stack)
     }
-    response.status(201).json({ status: 'success', message: 'Room added.' })
+
+    client.query("INSERT INTO rooms (room_id, name) VALUES (?, $2)", [randID, name], error => {
+      if (error){
+        throw error
+        console.log("SCREAM!")
+      }
+      response.send("Added: "+ name)
+    })
   })
-}
 
 const newUser = (request, response) => {
-  console.log("didnt declare params yet")
   const { email, password } = request.body
-  console.log(email,password)
   pool.connect((err, client, release) => {
       if (err) {
         return console.error('Error acquiring client', err.stack)
