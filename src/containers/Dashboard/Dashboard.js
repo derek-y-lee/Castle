@@ -4,14 +4,14 @@ import classes from './Dashboard.module.scss';
 
 import SocialGroups from './SocialGroups/SocialGroups';
 
-const { layout, userUI, assortmentUI, dashboardView } = classes;
+const { layout, userUI, assortmentUI, dashboardView, information, bannerA, bannerB, leaderBoard } = classes;
 
 const dashboard = (props) => {
     return (
         <div className={layout}>
             <section className={userUI}>
                 <div className={assortmentUI}>
-                    <Link to="/" style={{backgroundColor: "pink"}}>Icon</Link>
+                    <Link to="/" style={{ backgroundColor: "pink" }}>Icon</Link>
                     <Link>Friends</Link>
                     <Link>????</Link>
                     <Link>????</Link>
@@ -19,7 +19,23 @@ const dashboard = (props) => {
             </section>
             <section className={dashboardView}>
                 <SocialGroups />
+                <section className={information}>
+                    <div className={bannerA}>Adbanner1</div>
+                    <div className={bannerB}>Adbanner2</div>
+                    <div className={leaderBoard}>
+                        Leaderboard
+                        <ul>
+                            <li>uwu</li>
+                            <li>uwu</li>
+                            <li>uwu</li>
+                            <li>uwu</li>
+                            <li>uwu</li>
+                        </ul>
+                    </div>
+
+                </section>
             </section>
+
         </div>
     );
 };
