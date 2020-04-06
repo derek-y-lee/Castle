@@ -5,6 +5,11 @@ const bodyParser = require('body-parser');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const pool = require('./config.js').pool;
+const pg = require('pg');
+pg.defaults.ssl = true;
+
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize(process.env.URI);
 
 
 app.use(bodyParser.json())
