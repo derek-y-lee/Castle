@@ -5,8 +5,6 @@ const bodyParser = require('body-parser');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const pool = require('./config.js').pool;
-const bcrypt = require('bcrypt');
-const crypto = require('crypto');
 
 
 app.use(bodyParser.json())
@@ -33,7 +31,6 @@ const addRoom = (request, response) => {
 
   // let randID = "98sdf98jk"
   const { room_id, name } = request.body
-  console.log(randID)
   pool.connect((err, client, release) => {
     if (err) {
       return console.error('Error acquiring client', err.stack)
@@ -70,61 +67,33 @@ const newUser = (request, response) => {
 }
 
 // begin login code
+app.get
 const login = (request, response) => {
-  const userReq = request.body
-  let user
-  findUser(userReq).then(foundUser => {
-    user = foundUser
-    return checkPassword(userReq.password, foundUser)
-  })
-  .then((res) => createToken())
-  .then(token => updateUserToken(token, user))
-  .then(() => {
-    delete user.password_digest
-    response.status(200).json(user)
-  })
-  .catch((err) => consle.error(err))
-}
-
-const createToken = () => {
-  return new Promise((resolve, reject) => {
-    crypto.randomBytes(16, (err, data) => {
-      err ? reject(err) : resolve(data.toString('base64'))
-    })
-  })
-}
-
-const findUser = (userReq) => {
-  return DB_DATABASE.raw("SELECT * FROM users WHERE username = ?", [userReq.username])
-    .then((data) => data.rows[0])
-}
-
-const checkPassword = (reqPassword, foundUser) => {
-  return new Promise((resolve, reject) =>
-    bcrypt.compare(reqPassword, foundUser.password_digest, (err, response) => {
-        if (err) {
-          reject(err)
+  const { email, password } = request.body
+  pool.connect((err, client, release) => {
+      if (err) {
+        return console.error('Error acquiring client', err.stack)
+      }
+      client.query("SELECT email, password FROM account WHERE email = ($1) AND password = ($2)", [email, password], error => {
+        if (error) {
+          throw error
+          console.log("SCREAM!")
         }
-        else if (response) {
-          resolve(response)
-        } else {
-          reject(new Error('Passwords do not match.'))
-        }
+        response.send("Login Authenticated: " + email)
+        // response.status(201).json({ status: 'success', message: 'New user added.' })
+      })
     })
-  )
 }
-
-const updateUserToken = (token, user) => {
-  return database.raw("UPDATE users SET token = ? WHERE id = ? RETURNING id, username, token", [token, user.id])
-    .then((data) => data.rows[0])
-}
-// end login code
 
 
 
 app.post('/api/dashboard', addRoom)
 app.post('/api', newUser)
-app.post('/api', login)
+app.post('/api/login', login)
+
+app.get('/api/login', function(req, res) {
+    res.render('handleLogin.ejs');
+});
 
 app.get('/chat', function(req, res) {
     res.render('index.ejs');
