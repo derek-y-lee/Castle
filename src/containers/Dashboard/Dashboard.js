@@ -1,5 +1,5 @@
 import React from 'react';
-import Menu from '../../components/UI/Menu';
+import Menu from '../../components/UI/Menu/Menu';
 
 import classes from './Dashboard.module.scss';
 // import CurrentParty from '../CurrentParty/CurrentParty';

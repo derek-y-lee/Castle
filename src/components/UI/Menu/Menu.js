@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { icon, friends, scroll, mail } from '../../FillerImages';
+import { icon, friends, scroll, mail } from '../../../FillerImages';
 import classes from './Menu.module.scss';
 
 

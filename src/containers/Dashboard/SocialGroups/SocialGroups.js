@@ -9,20 +9,20 @@ const socialGroups = (props) => {
         <section className={groupContainer}>
             <div className={groupCell}>
                 <div className={groupImgContain}>
-                    <img src={groupASample} />
+                    <img src={groupASample} alt="example group" />
                     <h4 className={groupTitle}>Title</h4>
                 </div>
             </div>
             <div className={groupCell}>
                 <div className={groupImgContain}>
-                    <img src={groupBSample} />
+                    <img src={groupBSample} alt="example group" />
                     <h4 className={groupTitle}>Title</h4>
 
                 </div>
             </div>
             <div className={groupCell}>
                 <div className={groupImgContain}>
-                    <img src={groupCSample} />
+                    <img src={groupCSample} alt="example group" />
                     <h4 className={groupTitle}>Title</h4>
                 </div>
 
