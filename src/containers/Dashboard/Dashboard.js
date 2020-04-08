@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
+import Menu from '../../components/UI/Menu';
+
 import classes from './Dashboard.module.scss';
 // import CurrentParty from '../CurrentParty/CurrentParty';
 
@@ -12,14 +14,7 @@ const { layout, userUI, assortmentUI, dashboardView, information, bannerAProp, b
 const dashboard = (props) => {
     return (
         <div className={layout}>
-            <section className={userUI}>
-                <div className={assortmentUI}>
-                    <Link to="/" style={{ backgroundColor: "pink" }}>Icon</Link>
-                    <Link>Friends</Link>
-                    <Link to="/parties">Parties</Link>
-                    <Link>????</Link>
-                </div>
-            </section>
+            <Menu />
             <section className={dashboardView}>
                 <SocialGroups />
                 <section className={information}>
