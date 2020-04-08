@@ -50,25 +50,25 @@
     margin-top: 6em;
 }
 
-.bannerA {
-    cursor: pointer;
-    border: 1px solid #000;
-    grid-area: bannerA;
-    background-color: #686868;
-    height: 5em;
+.information img {
+    width: 80%;
+    height: auto;
 }
 
-.bannerB {
+.bannerAProp {
     cursor: pointer;
-    border: 1px solid #000;
-    // margin-top: 1.2em;
+     grid-area: bannerA;
+    background-color: #686868;
+}
+
+.bannerBProp {
+    cursor: pointer;
+     margin-top: 1.2em;
     grid-area: bannerB;
     background-color: #e8c859;
-    height: 5em;
-
 }
 
-.leaderBoard {
+.leaderboard {
     border: 1px solid #000;
     grid-area: leaderboard;
     color: blue;
