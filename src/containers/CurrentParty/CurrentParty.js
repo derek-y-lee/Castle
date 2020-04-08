@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-import classes from './CurrentParty.module.scss';
+import Menu from '../../components/UI/Menu';
 import PartyMember from './PartyMember/PartyMember';
 
-const { partyContainer, userUI, layout, assortmentUI, dashboardView } = classes;
+import classes from './CurrentParty.module.scss';
+
+const { partyContainer, userUI, layout, dashboardView } = classes;
 
 const partyMemberList = {
     leader: 'Jill',
@@ -17,12 +17,7 @@ const CurrentParty = (props) => {
     return (
         <div className={layout}>
             <section className={userUI}>
-                <div className={assortmentUI}>
-                    <Link to="/" style={{ backgroundColor: "pink" }}>Icon</Link>
-                    <Link>Friends</Link>
-                    <Link to="/parties">Parties</Link>
-                    <Link>????</Link>
-                </div>
+               <Menu />
             </section>
             <section className={partyContainer}>
                 <PartyMember 

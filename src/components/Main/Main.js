@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import classes from './Main.module.scss';
 // import { NavLink, Link } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
+import { landingIcon } from '../../FillerImages.js';
 
 const { layout, userUI, terminal, activeLink, restLink, enterBtn, login, slogan } = classes;
 
@@ -23,8 +23,7 @@ const Main = (props) => {
                     </button>
                     <button href="/"
                         className={isToggled ? restLink : activeLink}
-                        onClick={toggle}
-                       >
+                        onClick={toggle}>
                         sign up
                     </button>
                 </div>
@@ -46,6 +45,7 @@ const Main = (props) => {
                 </div>
             </section>
             <section className={slogan}>
+                <img src={landingIcon} alt="icon"/>
                 <p>Rally The Kingdom with your friends.</p>
             </section>
         </div>
