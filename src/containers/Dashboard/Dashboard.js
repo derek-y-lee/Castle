@@ -5,6 +5,13 @@ import CurrentParty from '../CurrentParty/CurrentParty';
 
 import SocialGroups from './SocialGroups/SocialGroups';
 
+import CastleIcon from './Icons/Castle.js'
+import FriendsIcon from './Icons/Friends.js'
+import ChatIcon from './Icons/Chat.js'
+import FriendsListIcon from './Icons/Friends.js'
+import EditGroupIcon from './Icons/Edit.js'
+import AddFriendIcon from './Icons/AddFriend.js'
+
 const { layout, userUI, assortmentUI, dashboardView, information, bannerA, bannerB, leaderBoard } = classes;
 
 const dashboard = (props) => {
@@ -12,7 +19,9 @@ const dashboard = (props) => {
         <div className={layout}>
             <section className={userUI}>
                 <div className={assortmentUI}>
-                    <Link to="/" style={{ backgroundColor: "pink" }}>Icon</Link>
+                    <CastleIcon width = "40px" height = "40px"/>
+                    <Link to="/api/dashboard" style={{ backgroundColor: "pink" }}>Icon</Link>
+                    <FriendsIcon width = "40px" height = "40px"/>
                     <Link>Friends</Link>
                     <Link to="/parties">Parties</Link>
                     <Link>????</Link>
