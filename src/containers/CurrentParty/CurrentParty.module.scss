@@ -1,0 +1,40 @@
+@import '../../variables.scss';
+
+.layout {
+    display: grid;
+    grid-template-columns: 15% 25% 60%;
+    // grid-template-rows: 1fr 1fr;
+    text-align: center;
+    grid-gap: 1.5em;
+}
+
+// Left Side
+
+.userUI {
+    position: relative;
+    background-color: $loginBackground;
+    // width: 35%;
+    height: auto;
+    // height: auto;
+}
+
+.assortmentUI a {
+    display: block;
+    width: 100%;
+    padding: 2em 0;
+    border: 1px solid yellow;
+    margin-top: 2em;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+}
+
+.assortmentUI a:last-child {
+    margin-bottom: 55vh;
+}
+
+// Middle
+
+.partyContainer {
+    border: 2px solid #000;
+}

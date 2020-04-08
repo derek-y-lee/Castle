@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import classes from './Dashboard.module.scss';
+import CurrentParty from '../CurrentParty/CurrentParty';
 
 import SocialGroups from './SocialGroups/SocialGroups';
 
@@ -13,7 +14,7 @@ const dashboard = (props) => {
                 <div className={assortmentUI}>
                     <Link to="/" style={{ backgroundColor: "pink" }}>Icon</Link>
                     <Link>Friends</Link>
-                    <Link>????</Link>
+                    <Link to="/parties">Parties</Link>
                     <Link>????</Link>
                 </div>
             </section>

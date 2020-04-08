@@ -6,7 +6,7 @@
     grid-template-columns: 1fr 6fr;
     // grid-template-rows: 1fr 1fr;
     text-align: center;
-    grid-gap: 0;
+    grid-gap: 1.5em;
 }
 
 
@@ -51,14 +51,21 @@
 }
 
 .bannerA {
+    cursor: pointer;
     border: 1px solid #000;
     grid-area: bannerA;
+    background-color: #686868;
+    height: 5em;
 }
 
 .bannerB {
+    cursor: pointer;
     border: 1px solid #000;
-    margin-top:5em;
+    // margin-top: 1.2em;
     grid-area: bannerB;
+    background-color: #e8c859;
+    height: 5em;
+
 }
 
 .leaderBoard {
