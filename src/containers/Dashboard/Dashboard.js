@@ -9,7 +9,7 @@ import { bannerA, bannerB, leaderboardFill } from '../../FillerImages';
 
 import SocialGroups from './SocialGroups/SocialGroups';
 
-const { layout, userUI, assortmentUI, dashboardView, information, bannerAProp, bannerBProp, leaderboardProp } = classes;
+const { layout, dashboardView, information, bannerAProp, bannerBProp, leaderboardProp } = classes;
 
 const dashboard = (props) => {
     return (
