@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
 import Menu from '../../components/UI/Menu';
 
 import classes from './Dashboard.module.scss';

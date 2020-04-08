@@ -11,7 +11,7 @@ const menu = (props) => {
         <section className={userMenuContainer}>
             <div className={userMenu}>
                 <Link to="/dashboard">
-                <img src={icon} /> ss
+                <img src={icon} alt="icon for app" /> ss
                 </Link>
                 <Link>Friends</Link>
                 <Link to="/parties">Parties</Link>
