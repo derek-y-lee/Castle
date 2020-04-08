@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import classes from './Dashboard.module.scss';
-import CurrentParty from '../CurrentParty/CurrentParty';
+// import CurrentParty from '../CurrentParty/CurrentParty';
+
+import { bannerA, bannerB, leaderboardFill } from '../../FillerImages';
 
 import SocialGroups from './SocialGroups/SocialGroups';
 
-const { layout, userUI, assortmentUI, dashboardView, information, bannerA, bannerB, leaderBoard } = classes;
+const { layout, userUI, assortmentUI, dashboardView, information, bannerAProp, bannerBProp, leaderboardProp } = classes;
 
 const dashboard = (props) => {
     return (
@@ -21,19 +23,12 @@ const dashboard = (props) => {
             <section className={dashboardView}>
                 <SocialGroups />
                 <section className={information}>
-                    <div className={bannerA}>Adbanner1</div>
-                    <div className={bannerB}>Adbanner2</div>
-                    <div className={leaderBoard}>
-                        Leaderboard
-                        <ul>
-                            <li>uwu</li>
-                            <li>uwu</li>
-                            <li>uwu</li>
-                            <li>uwu</li>
-                            <li>uwu</li>
-                        </ul>
+                    <div>
+                    <img className={bannerAProp} alt="bannerA" src={bannerA} />
+                    <img className={bannerBProp}  alt="filler display" src={bannerB} />
                     </div>
-
+ 
+                    <img className={leaderboardProp} alt="leaderboard statistics" src={leaderboardFill} />
                 </section>
             </section>
 
