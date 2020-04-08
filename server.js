@@ -52,18 +52,38 @@ const addRoom = (request, response) => {
 
 }
 
+const addToRoom = (request, response) => {
+  const { room_id, name } = request.body
+  pool.connect((err, client, release) => {
+    if (err) {
+      return console.error('Error acquiring client', err.stack)
+    }
+
+    client.query("INSERT INTO rooms (room_id, name) VALUES ($1, $2)", [randID, name], error => {
+      if (error){
+        throw error
+        console.log("SCREAM!")
+      }
+      response.send("Added: "+ name)
+    })
+  })
+
+}
+
 const newUser = (request, response) => {
   const { email, password } = request.body
+  let userID = Math.random().toString(13).replace('0.', '')
+
   pool.connect((err, client, release) => {
       if (err) {
         return console.error('Error acquiring client', err.stack)
       }
-      client.query("INSERT INTO account(email, password) VALUES ($1,$2)", [email, password], error => {
+      client.query("INSERT INTO account(user_id, email, password) VALUES ($1,$2, $3)", [user_id, email, password], error => {
         if (error) {
           throw error
           console.log("SCREAM!")
         }
-        response.send("Added: " + email)
+        response.send("Added: " + email + " with userID: " + user_id)
         // response.status(201).json({ status: 'success', message: 'New user added.' })
       })
 
