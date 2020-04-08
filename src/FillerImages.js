@@ -8,3 +8,8 @@ export const icon = require('./assets/svgs/Castle.svg');
 export const friends = require('./assets/svgs/friends.svg');
 export const scroll = require('./assets/svgs/scroll.svg');
 export const mail = require('./assets/svgs/mail-sharp.svg');
+
+// images
+export const groupASample = require('./assets/group1Sample.jpeg');
+export const groupBSample = require('./assets/group2Sample.jpeg');
+export const groupCSample = require('./assets/group3Sample.jpeg');
