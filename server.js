@@ -6,10 +6,9 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const pool = require('./config.js').pool;
 const pg = require('pg');
-pg.defaults.ssl = true;
 
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize(process.env.URI);
+const path = require('path')
+pg.defaults.ssl = true;
 
 
 app.use(bodyParser.json())
@@ -20,6 +19,9 @@ app.use(
 )
 
 app.use(cors())
+
+
+app.use(express.static(path.join(__dirname, 'build')));
 
 
 const getGroups = (request, response) => {
@@ -72,18 +74,21 @@ const addToRoom = (request, response) => {
 
 const newUser = (request, response) => {
   const { email, password } = request.body
-  let userID = Math.random().toString(13).replace('0.', '')
+  let userID = Math.ceil(50000 * Math.random())
 
+  console.log(email,password)
   pool.connect((err, client, release) => {
+    console.log("connected")
       if (err) {
         return console.error('Error acquiring client', err.stack)
       }
-      client.query("INSERT INTO account(user_id, email, password) VALUES ($1,$2, $3)", [user_id, email, password], error => {
+      client.query("INSERT INTO account(user_id, email, password) VALUES ($1,$2, $3)", [userID, email, password], error => {
         if (error) {
           throw error
           console.log("SCREAM!")
         }
-        response.send("Added: " + email + " with userID: " + user_id)
+        console.log("success")
+        response.send("Added: " + email + " with userID: " + userID)
         // response.status(201).json({ status: 'success', message: 'New user added.' })
       })
 
@@ -99,12 +104,14 @@ const login = (request, response) => {
       if (err) {
         return console.error('Error acquiring client', err.stack)
       }
-      client.query("SELECT email, password FROM account WHERE email = ($1) AND password = ($2)", [email, password], error => {
+      client.query("SELECT email, password FROM account WHERE email = ($1) AND password = ($2)", [email, password], (error, result) => {
         if (error) {
-          throw error
           console.log("SCREAM!")
+          response.send({error:error})
+          throw error
+
         }
-        response.send("Login Authenticated: " + email)
+        response.send(result.rows)
         // response.status(201).json({ status: 'success', message: 'New user added.' })
       })
     })
@@ -113,7 +120,7 @@ const login = (request, response) => {
 
 
 app.post('/api/dashboard', addRoom)
-app.post('/api', newUser)
+app.post('/api/newUser', newUser)
 app.post('/api/login', login)
 
 app.get('/api/login', function(req, res) {
@@ -122,6 +129,10 @@ app.get('/api/login', function(req, res) {
 
 app.get('/chat', function(req, res) {
     res.render('index.ejs');
+});
+
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 io.sockets.on('connection', function(socket) {
