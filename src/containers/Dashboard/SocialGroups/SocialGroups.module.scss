@@ -5,10 +5,14 @@
     justify-content: space-evenly;
 }
 
+.groupCell img {
+    width: 100%;
+}
+
 .groupCell {
-    margin-top: 2em;
-    border: 2px solid #000;
-    padding: 2em 3em;
+    margin: 2em .6em 0 .6em;
+    // border: 2px solid #000;
+    // padding: 2em 3em;
 }
 
 .groupCell h4 {
@@ -17,3 +21,13 @@
     width: 100%;
     opacity: .8;
 }
+
+.groupImgContain {
+    position: relative;
+}
+
+.groupTitle {
+    position: absolute;
+    top: 80%;
+}
+

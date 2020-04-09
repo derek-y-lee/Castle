@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Main from './components/Main/Main';
 import Dashboard from './containers/Dashboard/Dashboard';
-import currentParties from './containers/CurrentParty/CurrentParty';
+import ChatView from './containers/ChatView/ChatView';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Main} />
           <Route path="/dashboard" component={Dashboard} />
-          <Route exact path="/parties" component={currentParties} />
+          <Route exact path="/parties" component={ChatView} />
         </Switch>
 
 
