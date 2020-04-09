@@ -14,7 +14,7 @@ const chat = (props) => {
                 <p>Chat window here</p>
             </section>
             <section className={Roulette}>
-                <img src={youTube} alt="YouTube icon" />
+                <img src={youTube} alt="YouTube icon" onCLick={toggle} />
                 <img src={netFlix} alt="Netflix Icon"/>
                 <div>Roulette</div>
                 <div>Roulette</div>

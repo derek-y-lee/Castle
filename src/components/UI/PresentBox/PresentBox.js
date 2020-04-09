@@ -3,7 +3,7 @@ import React from 'react';
 const presentBox = (props) => {
     return (
         <div>
-            YouChoob video
+            <p>YouTUbe video here</p>
         </div>
     );
 };
