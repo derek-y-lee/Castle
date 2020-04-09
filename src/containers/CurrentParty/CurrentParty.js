@@ -18,14 +18,14 @@ const CurrentParty = (props) => {
         <div className={layout}>
             <section className={userUI}>
                 <div className={assortmentUI}>
-                    <Link to="/" style={{ backgroundColor: "pink" }}>Icon</Link>
+                    <Link to="/dashboard" style={{ backgroundColor: "pink" }}>Icon</Link>
                     <Link>Friends</Link>
-                    <Link to="/parties">Parties</Link>
+                    <Link to="/parties">Current Party</Link>
                     <Link>????</Link>
                 </div>
             </section>
             <section className={partyContainer}>
-                <PartyMember 
+                <PartyMember
                     name={partyMemberList.leader}
                     rank={partyMemberList.rank}/>
               </section>
