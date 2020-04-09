@@ -11,19 +11,19 @@ const menu = (props) => {
         <section className={userMenuContainer}>
             <div className={userMenu}>
                 <Link to="/dashboard">
-                    <img src={icon} alt="icon for app" /> 
-                    <p>Castle</p> 
-                </Link>
-                <Link> 
-                    <img src={friends} alt="icon for app" /> 
-                    <p>Friends</p> 
-                </Link>
-                <Link to="/parties" style={{paddingTop: "1em"}}>
-                <img src={scroll} alt="icon for app" /> 
-                    <p>?????</p> 
+                    <img src={icon} alt="icon for app" />
+                    <p>Castle</p>
                 </Link>
                 <Link>
-                <img src={mail} alt="icon for app" /> 
+                    <img src={friends} alt="icon for app" />
+                    <p>Friends</p>
+                </Link>
+                <Link to="/parties" style={{paddingTop: "1em"}}>
+                <img src={scroll} alt="icon for app" />
+                    <p>Current Party</p> 
+                </Link>
+                <Link>
+                <img src={mail} alt="icon for app" />
                     <p>Friends</p>                 </Link>
             </div>
         </section>);

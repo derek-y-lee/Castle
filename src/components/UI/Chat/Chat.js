@@ -11,7 +11,9 @@ const chat = (props) => {
                 <p>Chat window here</p>
             </section>
             <section className={Roulette}>
+              <Link to = "www.youtube.com">
                 <img src={youTube} alt="YouTube icon" />
+              </Link>
                 <img src={netFlix} alt="Netflix Icon"/>
                 <div>Roulette</div>
                 <div>Roulette</div>
