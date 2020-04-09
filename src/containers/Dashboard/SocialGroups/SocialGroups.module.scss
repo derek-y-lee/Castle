@@ -10,6 +10,7 @@
 }
 
 .groupCell {
+    position: relative;
     margin: 2em .6em 0 .6em;
     // border: 2px solid #000;
     // padding: 2em 3em;
@@ -32,11 +33,19 @@
 }
 
 .groupImgContain button {
-    position: absolute;
+    // position: absolute;
     border: none;
     padding: .5em;
     cursor: pointer;
     z-index: 9999;
     left: 23.8em;
     height: 3.5em;
+}
+
+.actionContainer {
+    position: absolute;
+    display: flex;
+    justify-content: right;
+    z-index: 9999;
+    right: 0;
 }
