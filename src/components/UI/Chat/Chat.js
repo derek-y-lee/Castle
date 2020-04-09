@@ -1,7 +1,8 @@
 import React from 'react';
 import classes from './Chat.module.scss';
+import { youTube, netFlix } from '../../../FillerImages';
 
-const { chatWindow, Roulette, chatInput } = classes;
+const { chatWindow, Roulette, chatInput, send } = classes;
 
 const chat = (props) => {
     return (
@@ -10,13 +11,14 @@ const chat = (props) => {
                 <p>Chat window here</p>
             </section>
             <section className={Roulette}>
-                <div>Roulette</div>
-                <div>Roulette</div>
+                <img src={youTube} alt="YouTube icon" />
+                <img src={netFlix} alt="Netflix Icon"/>
                 <div>Roulette</div>
                 <div>Roulette</div>
             </section>
             <section className={chatInput}>
                 <textarea type="textarea" />
+                <button className={send}>Send</button>
             </section>
         </>
     );
