@@ -4,7 +4,7 @@ export const leaderboardFill = require('./assets/screencaptures/LeaderboardFill.
 
 // SVGs
 export const landingIcon = require('./assets/svgs/landingIcon.svg');
-export const icon = require('./assets/svgs/Castle.svg');
+export const icon = require('./assets/svgs/castle.svg');
 export const friends = require('./assets/svgs/friends.svg');
 export const scroll = require('./assets/svgs/scroll.svg');
 export const mail = require('./assets/svgs/mail-sharp.svg');
