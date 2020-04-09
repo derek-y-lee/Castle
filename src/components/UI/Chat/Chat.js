@@ -4,6 +4,9 @@ import { youTube, netFlix } from '../../../FillerImages';
 
 const { chatWindow, Roulette, chatInput, send } = classes;
 
+const [ YouTube, toOpenYouTube ] = useState(false);
+const toggle = () => toOpenYouTube(!YouTube);
+
 const chat = (props) => {
     return (
         <>

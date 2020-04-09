@@ -14,7 +14,7 @@ const menu = (props) => {
                     <img src={icon} alt="icon for app" /> 
                     <p>Castle</p> 
                 </Link>
-                <Link href="www.facebook.com"> 
+                <Link> 
                     <img src={friends} alt="icon for app" /> 
                     <p>Friends</p> 
                 </Link>
