@@ -31,3 +31,12 @@
     top: 80%;
 }
 
+.groupImgContain button {
+    position: absolute;
+    border: none;
+    padding: .5em;
+    cursor: pointer;
+    z-index: 9999;
+    left: 23.8em;
+    height: 3.5em;
+}

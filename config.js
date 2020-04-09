@@ -11,13 +11,12 @@ NODE_TLS_REJECT_UNAUTHORIZED=0
 //   ssl: isProduction,
 // })
 
+
+const constring = 'postgres://egyexggwyrpmdu:0162839b85fd5ed5054834084bdd526700afa706a029009c772ac95f4bbb10b9@ec2-52-71-85-210.compute-1.amazonaws.com:5432/d4ooudnj98rnf7'
+
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_DATABASE,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
-  ssl:true,
+  connectionString : constring,
+  ssl:true
 })
 pool.connect();
 
