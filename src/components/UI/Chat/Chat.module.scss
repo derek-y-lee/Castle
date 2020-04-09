@@ -1,0 +1,29 @@
+@import '../../../variables.scss';
+
+.chatWindow { 
+    background-color: #000;
+    color: #fff;
+    height: 150vh
+}
+
+.Roulette {
+    display: flex;
+    justify-content: space-evenly;
+    background: darkgrey;
+    margin-top: 1.5em;
+
+}
+
+.Roulette div {
+    padding: 2em;
+    border: 1px solid #000;
+}
+
+.chatInput {
+    margin-top: 1.2em;
+}
+
+.chatInput textarea {
+    height: 5em;
+    width: 95%;
+}
