@@ -11,10 +11,10 @@ const socialGroups = (props) => {
                 <div className={groupImgContain}>
                     <div className={actionContainer}>
                         <button>
-                            <img src={edit} />
+                            <img src={edit} alt="" />
                         </button>
                     </div>
-                    <img src={groupASample} alt="example group" />
+                    <img src={groupASample} alt="example group A" />
 
                     <h4 className={groupTitle}>Title</h4>
                 </div>
@@ -23,10 +23,10 @@ const socialGroups = (props) => {
                 <div className={groupImgContain}>
                     <div className={actionContainer}>
                         <button>
-                            <img src={edit} />
+                            <img src={edit} alt="" />
                         </button>
                     </div>
-                    <img src={groupBSample} alt="example group" />
+                    <img src={groupBSample} alt="Wine drinking" />
            
                     <h4 className={groupTitle}>Title</h4>
 
@@ -35,11 +35,11 @@ const socialGroups = (props) => {
             <div className={groupCell}>
                 <div className={actionContainer}>
                     <button>
-                        <img src={edit} />
+                        <img src={edit} alt=""/>
                     </button>
                 </div>
                 <div className={groupImgContain}>
-                    <img src={groupCSample} alt="example group" />
+                    <img src={groupCSample} alt="skyview box" />
 
                     <h4 className={groupTitle}>Title</h4>
                 </div>

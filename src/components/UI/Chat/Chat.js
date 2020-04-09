@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState} from 'react';
 import classes from './Chat.module.scss';
 import { youTube, netFlix } from '../../../FillerImages';
 
