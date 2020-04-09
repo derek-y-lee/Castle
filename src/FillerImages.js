@@ -9,6 +9,10 @@ export const friends = require('./assets/svgs/friends.svg');
 export const scroll = require('./assets/svgs/scroll.svg');
 export const mail = require('./assets/svgs/mail-sharp.svg');
 
+// Roulette
+export const youTube = require('./assets/svgs/YouTube.svg');
+export const netFlix = require('./assets/svgs/Netflix_icon.svg');
+
 // images
 export const groupASample = require('./assets/group1Sample.jpeg');
 export const groupBSample = require('./assets/group2Sample.jpeg');

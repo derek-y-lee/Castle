@@ -3,27 +3,40 @@
 .chatWindow { 
     background-color: #000;
     color: #fff;
-    height: 150vh
+    height: 95vh
 }
 
 .Roulette {
     display: flex;
     justify-content: space-evenly;
     background: darkgrey;
-    margin-top: 1.5em;
-
+    margin: 1.5em auto 0 auto;
+    width: 95%;
 }
 
 .Roulette div {
-    padding: 2em;
+    // padding: 2em;
     border: 1px solid #000;
 }
 
+.Roulette  img {
+    width: 10%;
+}
+
 .chatInput {
+    display: flex;
     margin-top: 1.2em;
 }
 
 .chatInput textarea {
     height: 5em;
-    width: 95%;
+    width: 90%;
+}
+
+button.send {
+    background-color: #477BB3;
+    color: #fff;
+    padding: .5em 1em;
+    border: none;
+    cursor: pointer;
 }
