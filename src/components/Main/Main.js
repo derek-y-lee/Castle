@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classes from './Main.module.scss';
 // import { NavLink, Link } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { landingIcon } from '../../FillerImages.js';
 
 const { layout, userUI, terminal, activeLink, restLink, enterBtn, login, slogan } = classes;
