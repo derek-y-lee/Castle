@@ -35,7 +35,7 @@ const Main = (props) => {
                     alert("authenticated")
                     props.history.push("/dashboard")
                 }
-                else   
+                else
                     alert("bad log in")
             })
             .catch(res=> alert(res))
@@ -88,6 +88,11 @@ const Main = (props) => {
                 <div style={{ marginTop: "5em", marginBottom: "8em" }}>
                     <button onClick={handleEnter} className={enterBtn}>enter</button>
                 </div>
+            </section>
+            <section>
+              <div style={{ marginTop: "20em" }}>
+                <p>Castle</p>
+              </div>
             </section>
             <section className={slogan}>
                 <img src={landingIcon} alt="icon"/>

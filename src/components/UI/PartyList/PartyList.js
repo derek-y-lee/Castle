@@ -3,7 +3,7 @@ import PartyMember from './PartyMember/PartyMember';
 
 import classes from './PartyList.module.scss';
 
-import { memberList } from '../../../FillerImages';
+import { memberList,  } from '../../../FillerImages';
 
 const { partyContainer } = classes;
 

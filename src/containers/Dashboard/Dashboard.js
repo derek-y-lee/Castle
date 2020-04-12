@@ -21,32 +21,19 @@ const Dashboard = (props) => {
         <div className={layout}>
             <Menu />
             <section className={dashboardView}>
-                
                 <SocialGroups />
-                Enter Youtube Link {" "}
-                <input value={youtubeInput} onChange={(e)=>setYoutubeInput(e.target.value)}/> 
-                <button onClick={()=>setYoutubeLink(youtubeInput)}>Play Youtube Link</button>
-                <div>
-                <iframe 
-                    width="420" 
-                    height="315"
-                    src={"https://www.youtube.com/embed/" + youtubeLink.split("v=").reverse()[0]}
-                >
-                </iframe>
-                </div>
+
                 <section className={information}>
                     <div>
                     <img className={bannerAProp} alt="bannerA" src={bannerA} />
                     <img className={bannerBProp}  alt="filler display" src={bannerB} />
                     </div>
- 
+
                     <img className={leaderboardProp} alt="leaderboard statistics" src={leaderboardFill} />
                 </section>
             </section>
-
-        </div>
-    );
-};
-
+          </div>
+        );
+      };
 
 export default Dashboard;
