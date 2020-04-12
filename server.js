@@ -132,7 +132,7 @@ app.post('/api/inviteNumber', function(req, res) {
   console.log(number,process.env.twilio_no)
   twilioClient.messages
   .create({
-     body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+     body: "Come join my party in Castle!",
      from: process.env.twilio_no, // this is the Twilio number you're assigned in your Twilio account
      to: number // phone number of msg recipient
    })
@@ -144,7 +144,7 @@ app.post('/api/inviteNumber', function(req, res) {
     res.send(JSON.stringify({ success: false }));
   })
 
- 
+
 
 });
 
