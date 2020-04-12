@@ -23,17 +23,17 @@ const partyMemberList = [
         name: 'Michael Chu',
         rank: 'member',
         image: <img src={FaceC} alt="" />
-    }
+    },
     {
         name: 'Gina Tran',
         rank: 'member',
         image: <img src={FaceD} alt="" />
-    }
+    },
     {
         name: 'Laurin Hill',
         rank: 'member',
         image: <img src={FaceE} alt="" />
-    }
+    },
     {
         name: 'Wade Wilson',
         rank: 'member',
