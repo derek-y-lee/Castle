@@ -9,23 +9,24 @@ const { userMenuContainer, userMenu } = classes;
 const menu = (props) => {
     return (
         <section className={userMenuContainer}>
-            <div className={userMenu}>
-                <Link to="/dashboard">
-                    <img src={icon} alt="icon for app" />
+          <div className={userMenu}>
+                <Link to="/dashboard" style={{paddingTop: "1em"}}>
+                <img src={icon} alt="icon for app" />
                     <p>Castle</p>
                 </Link>
-                <Link>
-                    <img src={friends} alt="icon for app" />
+                <Link to="/parties" style={{paddingTop: "1em"}}>
+                <img src={friends} alt="icon for app" />
                     <p>Friends</p>
                 </Link>
                 <Link to="/parties" style={{paddingTop: "1em"}}>
-                <img src={scroll} alt="icon for app" />
-                    <p>Current Party</p> 
+                <img src={scroll} alt="icon for app" style={{paddingBottom:"10px"}}/>
+                    <p>Current Party</p>
                 </Link>
-                <Link>
-                <img src={mail} alt="icon for app" />
-                    <p>Friends</p>                 </Link>
-            </div>
+                <Link to="/parties" style={{paddingTop: "1em"}}>
+                <img src={mail} alt="icon for app" style={{paddingBottom:"10px"}}/>
+                    <p>Messages</p>
+                </Link>
+          </div>
         </section>);
 };
 

@@ -8,21 +8,34 @@ const { chatWindow, Roulette, chatInput, send } = classes;
 const Chat = (props) => {
 
 
-const [ YouTube, toOpenYouTube ] = useState(false);
-const toggle = () => toOpenYouTube(!YouTube);
+
+// const [ YouTube, toOpenYouTube ] = useState(false);
+// const toggle = () => toOpenYouTube(!YouTube);
+
+  const [youtubeInput,setYoutubeInput] = useState("")
+  const [youtubeLink,setYoutubeLink] = useState("https://www.youtube.com/watch?v=tpiyEe_CqB4")
+
 
     return (
         <>
-            <section className={chatWindow}>
-                <p>Chat here</p>
-            </section>
+        <br />
+        <br />
+        <div>
+        <iframe
+            width="90%"
+            height="385"
+            src={"https://www.youtube.com/embed/" + youtubeLink.split("v=").reverse()[0]}
+        allowfullscreen>
+        </iframe>
+        </div>
+        Enter Youtube Link {" "}
+        <input value={youtubeInput} onChange={(e)=>setYoutubeInput(e.target.value)}/>
+        <button onClick={()=>setYoutubeLink(youtubeInput)}>Play Youtube Link</button>
+
             <section className={Roulette}>
-              <a href="https://www.youtube.com/">
                 <img src={youTube} alt="YouTube icon"/>
-              </a>
                 <img src={netFlix} alt="Netflix Icon"/>
-                <div>Roulette</div>
-                <div>Roulette</div>
+
             </section>
             <section className={chatInput}>
                 <textarea type="textarea" />
