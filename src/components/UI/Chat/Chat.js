@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import classes from './Chat.module.scss';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { youTube, netFlix } from '../../../FillerImages';
 
 import client from 'twilio'
-const { chatWindow, Roulette, chatInput, send } = classes;
+const { Roulette, chatInput, send } = classes;
 
 const Chat = (props) => {
 

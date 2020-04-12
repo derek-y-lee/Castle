@@ -25,11 +25,23 @@
 
 .groupImgContain {
     position: relative;
+    cursor: pointer;
+}
+
+.groupImgContain:hover {
+    border: orange solid 2px;
+    top: 4%;
 }
 
 .groupTitle {
     position: absolute;
-    top: 80%;
+    top: 78%;
+    // height: 3em;
+}
+
+.groupImgContain h4 {
+    text-align: center;
+    font-size: 2em;
 }
 
 .groupImgContain button {
