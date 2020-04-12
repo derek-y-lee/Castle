@@ -4,7 +4,7 @@ import PartyMember from './PartyMember/PartyMember';
 
 import classes from './PartyList.module.scss';
 
-import { FaceA, FaceB, FaceC, FaceD, FaceE, FaceF, FaceG, memberList } from '../../../FillerImages';
+import { FaceA, FaceB, FaceC, FaceD, FaceE, FaceF, FaceG } from '../../../FillerImages';
 
 const { partyContainer } = classes;
 
