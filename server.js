@@ -132,7 +132,7 @@ app.post('/api/inviteNumber', function(req, res) {
   console.log(number,process.env.twilio_no)
   twilioClient.messages
   .create({
-     body: "Come join my party in Castle!",
+     body: "Come join my party in Castle! Here's the link: https://hackquarantine-castle.herokuapp.com/parties",
      from: process.env.twilio_no, // this is the Twilio number you're assigned in your Twilio account
      to: number // phone number of msg recipient
    })
@@ -180,8 +180,8 @@ io.sockets.on('connection', function(socket) {
 
 });
 
-const server = http.listen(proces.env.PORT || 8080, function() {
-    console.log('listening on ' + proces.env.PORT || 8080);
+const server = http.listen(process.env.PORT || 8080, function() {
+    console.log('listening on ' + process.env.PORT || 8080);
 });
 
 module.exports = {

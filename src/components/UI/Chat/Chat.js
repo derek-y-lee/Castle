@@ -65,6 +65,7 @@ const Chat = (props) => {
                 <textarea type="textarea" />
                 <button className={send}>Send</button>
             </section>
+            <br />
             <input value={inviteNumber} onChange={(e) => setInviteNumber(e.target.value)} />
             <button className={inviteFrndBtn} onClick={handleInvite}>Invite Friend</button>
             {" "}Invite Friend by Phone (must include country code e.g +1)
