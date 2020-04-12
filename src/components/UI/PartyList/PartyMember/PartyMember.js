@@ -7,8 +7,10 @@ const partyMember = (props) => {
     return (
         <div className={userContainer}>
             {props.image}
-            {props.name}
-            <p>Rank: {props.rank} </p>
+            <p>
+            {props.name}<br />
+            Rank: {props.rank}
+            </p>
         </div>
     );
 };
