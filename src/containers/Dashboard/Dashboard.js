@@ -1,44 +1,39 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, {useState} from 'react';
+import Menu from '../../components/UI/Menu/Menu';
+
 import classes from './Dashboard.module.scss';
+// import CurrentParty from '../CurrentParty/CurrentParty';
+
+import { bannerA, bannerB, leaderboardFill } from '../../FillerImages';
 
 import SocialGroups from './SocialGroups/SocialGroups';
 
-const { layout, userUI, assortmentUI, dashboardView, information, bannerA, bannerB, leaderBoard } = classes;
+const { layout, dashboardView, information, bannerAProp, bannerBProp, leaderboardProp } = classes;
 
-const dashboard = (props) => {
+
+
+const Dashboard = (props) => {
+
+    const [youtubeInput,setYoutubeInput] = useState("")
+    const [youtubeLink,setYoutubeLink] = useState("https://www.youtube.com/watch?v=tpiyEe_CqB4")
+
     return (
         <div className={layout}>
-            <section className={userUI}>
-                <div className={assortmentUI}>
-                    <Link to="/" style={{ backgroundColor: "pink" }}>Icon</Link>
-                    <Link>Friends</Link>
-                    <Link>????</Link>
-                    <Link>????</Link>
-                </div>
-            </section>
+            <Menu />
             <section className={dashboardView}>
                 <SocialGroups />
+
                 <section className={information}>
-                    <div className={bannerA}>Adbanner1</div>
-                    <div className={bannerB}>Adbanner2</div>
-                    <div className={leaderBoard}>
-                        Leaderboard
-                        <ul>
-                            <li>uwu</li>
-                            <li>uwu</li>
-                            <li>uwu</li>
-                            <li>uwu</li>
-                            <li>uwu</li>
-                        </ul>
+                    <div>
+                    <img className={bannerAProp} alt="bannerA" src={bannerA} />
+                    <img className={bannerBProp}  alt="filler display" src={bannerB} />
                     </div>
 
+                    <img className={leaderboardProp} alt="leaderboard statistics" src={leaderboardFill} />
                 </section>
             </section>
+          </div>
+        );
+      };
 
-        </div>
-    );
-};
-
-
-export default dashboard;
+export default Dashboard;

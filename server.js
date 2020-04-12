@@ -5,8 +5,10 @@ const bodyParser = require('body-parser');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const pool = require('./config.js').pool;
-const bcrypt = require('bcrypt');
-const crypto = require('crypto');
+const pg = require('pg');
+
+const path = require('path')
+pg.defaults.ssl = true;
 
 
 app.use(bodyParser.json())
@@ -17,6 +19,9 @@ app.use(
 )
 
 app.use(cors())
+
+
+app.use(express.static(path.join(__dirname, 'build')));
 
 
 const getGroups = (request, response) => {
@@ -33,7 +38,24 @@ const addRoom = (request, response) => {
 
   // let randID = "98sdf98jk"
   const { room_id, name } = request.body
-  console.log(randID)
+  pool.connect((err, client, release) => {
+    if (err) {
+      return console.error('Error acquiring client', err.stack)
+    }
+
+    client.query("INSERT INTO rooms (room_id, name) VALUES ($1, $2)", [randID, name], error => {
+      if (error){
+        throw error
+        console.log("SCREAM!")
+      }
+      response.send("Added: "+ name)
+    })
+  })
+
+}
+
+const addToRoom = (request, response) => {
+  const { room_id, name } = request.body
   pool.connect((err, client, release) => {
     if (err) {
       return console.error('Error acquiring client', err.stack)
@@ -52,16 +74,21 @@ const addRoom = (request, response) => {
 
 const newUser = (request, response) => {
   const { email, password } = request.body
+  let userID = Math.ceil(50000 * Math.random())
+
+  console.log(email,password)
   pool.connect((err, client, release) => {
+    console.log("connected")
       if (err) {
         return console.error('Error acquiring client', err.stack)
       }
-      client.query("INSERT INTO account(email, password) VALUES ($1,$2)", [email, password], error => {
+      client.query("INSERT INTO account(user_id, email, password) VALUES ($1,$2, $3)", [userID, email, password], error => {
         if (error) {
           throw error
           console.log("SCREAM!")
         }
-        response.send("Added: " + email)
+        console.log("success")
+        response.send("Added: " + email + " with userID: " + userID)
         // response.status(201).json({ status: 'success', message: 'New user added.' })
       })
 
@@ -70,64 +97,42 @@ const newUser = (request, response) => {
 }
 
 // begin login code
+app.get
 const login = (request, response) => {
-  const userReq = request.body
-  let user
-  findUser(userReq).then(foundUser => {
-    user = foundUser
-    return checkPassword(userReq.password, foundUser)
-  })
-  .then((res) => createToken())
-  .then(token => updateUserToken(token, user))
-  .then(() => {
-    delete user.password_digest
-    response.status(200).json(user)
-  })
-  .catch((err) => consle.error(err))
-}
+  const { email, password } = request.body
+  pool.connect((err, client, release) => {
+      if (err) {
+        return console.error('Error acquiring client', err.stack)
+      }
+      client.query("SELECT email, password FROM account WHERE email = ($1) AND password = ($2)", [email, password], (error, result) => {
+        if (error) {
+          console.log("SCREAM!")
+          response.send({error:error})
+          throw error
 
-const createToken = () => {
-  return new Promise((resolve, reject) => {
-    crypto.randomBytes(16, (err, data) => {
-      err ? reject(err) : resolve(data.toString('base64'))
-    })
-  })
-}
-
-const findUser = (userReq) => {
-  return DB_DATABASE.raw("SELECT * FROM users WHERE username = ?", [userReq.username])
-    .then((data) => data.rows[0])
-}
-
-const checkPassword = (reqPassword, foundUser) => {
-  return new Promise((resolve, reject) =>
-    bcrypt.compare(reqPassword, foundUser.password_digest, (err, response) => {
-        if (err) {
-          reject(err)
         }
-        else if (response) {
-          resolve(response)
-        } else {
-          reject(new Error('Passwords do not match.'))
-        }
+        response.send(result.rows)
+        // response.status(201).json({ status: 'success', message: 'New user added.' })
+      })
     })
-  )
 }
-
-const updateUserToken = (token, user) => {
-  return database.raw("UPDATE users SET token = ? WHERE id = ? RETURNING id, username, token", [token, user.id])
-    .then((data) => data.rows[0])
-}
-// end login code
 
 
 
 app.post('/api/dashboard', addRoom)
-app.post('/api', newUser)
-app.post('/api', login)
+app.post('/api/newUser', newUser)
+app.post('/api/login', login)
+
+app.get('/api/login', function(req, res) {
+    res.render('handleLogin.ejs');
+});
 
 app.get('/chat', function(req, res) {
     res.render('index.ejs');
+});
+
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 io.sockets.on('connection', function(socket) {
