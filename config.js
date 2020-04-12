@@ -19,17 +19,3 @@ const pool = new Pool({
 pool.connect();
 
 module.exports = { pool }
-
-
-// Twilio portion:
-const accountSid = process.env.accountSid;
-const authToken = process.env.authToken;
-const client = require('twilio')(accountSid, authToken);
-
-client.messages
-  .create({
-     body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
-     from: process.env.twilio_no,
-     to: process.env.derek_no
-   })
-  .then(message => console.log(message.sid));
