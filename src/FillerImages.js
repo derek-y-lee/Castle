@@ -19,3 +19,12 @@ export const groupASample = require('./assets/group1Sample.jpeg');
 export const groupBSample = require('./assets/group2Sample.jpeg');
 export const groupCSample = require('./assets/group3Sample.jpeg');
 export const memberList = require('./assets/screencaptures/memberList.jpg');
+
+// Faces 
+export const FaceA = require('./assets/faces/FaceA.jpeg');
+export const FaceB = require('./assets/faces/FaceB.jpg');
+export const FaceC = require('./assets/faces/FaceC.jpg');
+export const FaceD = require('./assets/faces/FaceD.jpg');
+export const FaceE = require('./assets/faces/FaceE.png');
+export const FaceF = require('./assets/faces/FaceF.jpg');
+export const FaceG = require('./assets/faces/FaceG.jpg');

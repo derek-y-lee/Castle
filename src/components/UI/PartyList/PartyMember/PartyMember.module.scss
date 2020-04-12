@@ -1,6 +1,11 @@
 .userContainer {
+    display: flex;
     margin-top: 0em;
-    border: 2px solid #000;
+    // border: 2px solid #000;
     padding:  1em 1.5em;
     text-align: left;
+}
+
+.userContainer image {
+    width: 50%;
 }
