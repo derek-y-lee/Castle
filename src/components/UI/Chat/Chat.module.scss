@@ -44,3 +44,28 @@ button.send {
 button.send:hover {
     color: #000;
 }
+
+.playYoutube {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    padding: .5em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.playYoutube:hover {
+    color: lightgoldenrodyellow;
+}
+
+.inviteFrndBtn {
+    display: inline-block;
+    background-color: darkgreen;
+    color: #fff;
+    padding: .2em 1em;
+    box-sizing: content-box;
+    border: none;
+    cursor: pointer;
+}
