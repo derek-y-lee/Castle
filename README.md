@@ -3,6 +3,9 @@ https://hackquarantine-castle.herokuapp.com/
 
 
 ## To build the app:
+
+`git clone https://github.com/derek-y-lee/Castle.git`
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.<br />
