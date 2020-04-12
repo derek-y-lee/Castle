@@ -4,59 +4,59 @@ import classes from './Main.module.scss';
 // import { Link } from 'react-router-dom';
 import { landingIcon } from '../../FillerImages.js';
 
-const { layout, userUI, terminal, activeLink, restLink, enterBtn, login, slogan } = classes;
+const { layout, userUI, terminal, activeLink, restLink, enterBtn, login, slogan, testNew } = classes;
 
 const Main = (props) => {
 
     const [isToggled, setToggled] = useState(true);
     const toggle = () => setToggled(!isToggled);
 
-    const [email,setEmail] = useState("")
-    const [password,setPassword] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
     const handleEnter = () => {
-        if(isToggled){
+        if (isToggled) {
             //handle login
-            fetch("/api/login",{
-                method:"POST",
+            fetch("/api/login", {
+                method: "POST",
                 body: JSON.stringify({
-                    email:email,
-                    password:password
+                    email: email,
+                    password: password
                 }),
-                headers:{
+                headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json"
                 },
                 credentials: "include"
             }).then(res => res.json())
-            .then((res)=>{
-                console.log(res)
-                if(res.length > 0){
-                    alert("authenticated")
-                    props.history.push("/dashboard")
-                }
-                else
-                    alert("bad log in")
-            })
-            .catch(res=> alert(res))
+                .then((res) => {
+                    console.log(res)
+                    if (res.length > 0) {
+                        alert("authenticated")
+                        props.history.push("/dashboard")
+                    }
+                    else
+                        alert("bad log in")
+                })
+                .catch(res => alert(res))
 
-        }else{
+        } else {
             //handle signup
-            fetch("/api/newUser",{
-                method:"POST",
+            fetch("/api/newUser", {
+                method: "POST",
                 body: JSON.stringify({
-                    email:email,
-                    password:password
+                    email: email,
+                    password: password
                 }),
-                headers:{
+                headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json"
                 },
                 credentials: "include"
             }).then(res => res.text())
-            .then((res)=>{
-                alert(res)
-            })
+                .then((res) => {
+                    alert(res)
+                })
         }
     }
 
@@ -81,23 +81,27 @@ const Main = (props) => {
                 </div> */}
                 <div style={{ marginTop: "5em" }}>
                     <form className={login}>
-                        <input value={email} type="email" name="email" onChange={(event)=>setEmail(event.target.value)} placeholder="email" />
-                        <input value={password} type="password" name="password" onChange={(event)=>setPassword(event.target.value)} placeholder="password" />
+                        <input value={email} type="email" name="email" onChange={(event) => setEmail(event.target.value)} placeholder="email" />
+                        <input value={password} type="password" name="password" onChange={(event) => setPassword(event.target.value)} placeholder="password" />
                     </form>
                 </div>
                 <div style={{ marginTop: "5em", marginBottom: "8em" }}>
                     <button onClick={handleEnter} className={enterBtn}>enter</button>
                 </div>
             </section>
-            <section>
-              <div style={{ marginTop: "20em" }}>
+            <section className={testNew}>
                 <p>Castle</p>
-              </div>
+                <img src={landingIcon} alt="icon" />
+                <p style={{marginTop: "7em"}}>Rally The Kingdom with your friends.</p>
+
             </section>
+            {/* <div style={{ marginTop: "20em" }}>
+                <p>Castle</p>
+            </div>
             <section className={slogan}>
-                <img src={landingIcon} alt="icon"/>
+                <img src={landingIcon} alt="icon" />
                 <p>Rally The Kingdom with your friends.</p>
-            </section>
+            </section> */}
         </div>
     );
 };
