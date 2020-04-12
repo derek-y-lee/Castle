@@ -6,7 +6,7 @@ const client = require('twilio')(accountSid, authToken);
 
 client.messages
   .create({
-     body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+     body: 'This is from send_sms.js',
      from: process.env.twilio_no, // this is the Twilio number you're assigned in your Twilio account
      to: process.env.derek_no // phone number of msg recipient
    })
