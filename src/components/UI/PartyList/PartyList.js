@@ -3,8 +3,12 @@ import PartyMember from './PartyMember/PartyMember';
 
 import classes from './PartyList.module.scss';
 
+import { memberList } from '../../../FillerImages';
+
 const { partyContainer } = classes;
 
+ 
+ 
 const partyMemberList = {
     leader: 'Jill',
     rank: 'leader'
@@ -15,6 +19,7 @@ const partyMemberList = {
 const CurrentParty = (props) => {
     return (
         <section className={partyContainer}>
+            {/* <img src={memberList} /> */}
             <PartyMember
                 name={partyMemberList.leader}
                 rank={partyMemberList.rank} />

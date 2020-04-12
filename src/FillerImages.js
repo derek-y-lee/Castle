@@ -18,3 +18,4 @@ export const netFlix = require('./assets/svgs/Netflix_icon.svg');
 export const groupASample = require('./assets/group1Sample.jpeg');
 export const groupBSample = require('./assets/group2Sample.jpeg');
 export const groupCSample = require('./assets/group3Sample.jpeg');
+export const memberList = require('./assets/screencaptures/memberList.jpg');
