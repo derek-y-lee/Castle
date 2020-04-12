@@ -8,7 +8,7 @@ const partyMember = (props) => {
         <div className={userContainer}>
             {props.image}
             <p>
-            {props.name}<br />
+            <span style={{fontWeight: "bold"}}>{props.name}</span> <br />
             Rank: {props.rank}
             </p>
         </div>

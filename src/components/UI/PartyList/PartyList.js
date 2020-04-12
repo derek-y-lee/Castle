@@ -12,37 +12,37 @@ const { partyContainer } = classes;
 const partyMemberList = [
     {
         name: 'Mike Wakowski',
-        rank: 'leader',
+        rank: 'King',
         image: <img src={FaceA} alt="" />
     },
     {
         name: 'Sarah Lee',
-        rank: 'member',
+        rank: 'Member',
         image: <img src={FaceB} alt="" />
     },
     {
         name: 'Emma Star',
-        rank: 'member',
+        rank: 'Member',
         image: <img src={FaceC} alt="" />
     },
     {
         name: 'Gina Tran',
-        rank: 'member',
+        rank: 'Member',
         image: <img src={FaceD} alt="" />
     },
     {
         name: 'Brad Brokowski',
-        rank: 'member',
+        rank: 'Member',
         image: <img src={FaceE} alt="" />
     },
     {
         name: 'Wade Wilson',
-        rank: 'member',
+        rank: 'Member',
         image: <img src={FaceF} alt="" />
     },
     {
         name: 'Gwen Stacey',
-        rank: 'member',
+        rank: 'Member',
         image: <img src={FaceG} alt="" />
     }
 ]
