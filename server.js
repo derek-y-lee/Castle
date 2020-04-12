@@ -8,6 +8,14 @@ const pool = require('./config.js').pool;
 const pg = require('pg');
 
 const path = require('path')
+
+require('dotenv').config()
+const accountSid = process.env.accountSid;
+const authToken = process.env.authToken;
+
+console.log(accountSid)
+const twilioClient = require('twilio')(accountSid, authToken);
+
 pg.defaults.ssl = true;
 
 
@@ -118,6 +126,27 @@ const login = (request, response) => {
 }
 
 
+
+app.post('/api/inviteNumber', function(req, res) {
+  const { number } = req.body
+  console.log(number,process.env.twilio_no)
+  twilioClient.messages
+  .create({
+     body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+     from: process.env.twilio_no, // this is the Twilio number you're assigned in your Twilio account
+     to: number // phone number of msg recipient
+   })
+  .then(message => {
+    res.send(JSON.stringify({ success: true }));
+
+  }).catch(err => {
+    console.log(err);
+    res.send(JSON.stringify({ success: false }));
+  })
+
+ 
+
+});
 
 app.post('/api/dashboard', addRoom)
 app.post('/api/newUser', newUser)
